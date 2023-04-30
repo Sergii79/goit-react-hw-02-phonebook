@@ -1,14 +1,21 @@
+import PropTypes from 'prop-types';
 import { ContactListItems } from "./ContactListItems/ContactListItems";
 
-export const ContactList = ({ contacts }) => {
+export const ContactList = ({ items }) => {
     return (
         <div>
             <h2>Contacts</h2>
-            <ul>
-                <ContactListItems contacts={contacts} />
-            </ul>
+            {items.map(item => (
+                <ul key={item.id}>
+                    <ContactListItems item={item} />
+                </ul>
+            ))}            
         </div>
-
     );
+};
 
+ContactList.prototype = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired
+    })).isRequired,
 };

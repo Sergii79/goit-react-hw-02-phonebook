@@ -3,14 +3,23 @@ import { GlobalStyle } from "./GlobalStyle";
 
 import { ContactForm } from "./ContactForma/ContactForma";
 import { ContactList } from "./ContactList/ContactList";
+import { Filter } from "./Filter/Filter";
 
 export class App extends Component {
   state = {
-    contacts: [],
-    name: ''
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    // name: '',
+    // number: '',
+    filter: '',
   }
 
   addContact = newContact => {
+    console.log(newContact);
     const newNames = this.state.contacts.map(item => item.name);
 
     if (newNames.some(name => name.toLowerCase() === newContact.name.toLowerCase())) {
@@ -28,18 +37,11 @@ export class App extends Component {
   render() {
     return (
     <div
-      // style={{
-      //   height: '100vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      //   fontSize: 40,
-      //   color: '#010101'
-      // }}
     >
-      
-        <ContactForm />
-        <ContactList contacts={this.filterContacts} />
+      <h1>Phonebook</h1>
+      <ContactForm onSave={this.addContact} />
+      <Filter filter={this.filterContacts} />
+      <ContactList items={this.state.contacts} />
       <GlobalStyle />
     </div>
   );
