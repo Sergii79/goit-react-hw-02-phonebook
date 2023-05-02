@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 
-export const ContactListItems = ({ item: {name, number} }) => {   
-  
+//* елемент списку контактів
+
+export const ContactListItems = ({ item: {name, number}, deleteContact }) => {     
     return (
         <li key={name}>
-            <span>{name}: {number}</span>            
+            <span>{name}: {number}</span> 
+            <button type="button" onClick={() => deleteContact(name)}>Delete</button>
         </li>
     ); 
 };
@@ -14,5 +16,6 @@ ContactListItems.prototype = {
         name: PropTypes.string.isRequired,
         number: PropTypes.number.isRequired,
     }).isRequired,
+    deleteContact: PropTypes.func.isRequired,
 };
 

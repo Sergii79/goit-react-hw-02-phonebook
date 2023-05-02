@@ -12,14 +12,11 @@ export class App extends Component {
       { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
-    // name: '',
-    // number: '',
+    ],    
     filter: '',
   }
 
-  addContact = newContact => {
-    console.log(newContact);
+  addContact = newContact => {    
     const newNames = this.state.contacts.map(item => item.name);
 
     if (newNames.some(name => name.toLowerCase() === newContact.name.toLowerCase())) {
@@ -29,9 +26,23 @@ export class App extends Component {
     }
   };
 
-  filterContacts = value => {
-    console.log(value);
-    this.setState({ filter: value });
+  changeFilter = value => {    
+    this.setState({ filter: value.currentTarget.value });
+  }; 
+
+  // функция возвращающая новый массив контактов, отфильтрованных на основе значения фильтра.
+  filterContacts = () => {
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  deleteContact = contact => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(item => item.name !== contact),
+    }));
   };
 
   render() {
@@ -39,9 +50,17 @@ export class App extends Component {
     <div
     >
       <h1>Phonebook</h1>
-      <ContactForm onSave={this.addContact} />
-      <Filter filter={this.filterContacts} />
-      <ContactList items={this.state.contacts} />
+      <ContactForm
+        onSave={this.addContact}
+      />
+      <h2>Contacts</h2>
+      <Filter
+        onFilter={this.changeFilter}        
+      />
+      <ContactList        
+        filterContacts={this.filterContacts}
+        deleteContact={this.deleteContact}
+      />
       <GlobalStyle />
     </div>
   );

@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { Formik, Field, Form } from 'formik';
 import { nanoid } from 'nanoid';
 
+//* форма додавання контактів
+
 export const ContactForm = ({ onSave }) => {
     const handleSubmit = values => {        
         onSave({
