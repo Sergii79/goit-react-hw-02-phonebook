@@ -5,11 +5,12 @@ import { nanoid } from 'nanoid';
 //* форма додавання контактів
 
 export const ContactForm = ({ onSave }) => {
-    const handleSubmit = values => {        
+    const handleSubmit = (values, actions) => {
         onSave({
             ...values,
             id: nanoid(),
         });
+         actions.resetForm();
     };
 
     return (
@@ -19,6 +20,13 @@ export const ContactForm = ({ onSave }) => {
                 number: '',
             }}
             onSubmit={handleSubmit}
+            // onSubmit={(values, actions) => {
+            //     onSave({
+            //         ...values,
+            //         id: nanoid(),
+            //     });
+            //     actions.resetForm();
+            // }}
         >
             <Form>
                 <h2>Name</h2>
