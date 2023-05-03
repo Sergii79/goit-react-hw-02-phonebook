@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
+import { TextList, Text, DeleteBtn } from "./ContactListItems.styled";
+import { MdDeleteForever } from "react-icons/md";
 
 //* елемент списку контактів
 
 export const ContactListItems = ({ item: {name, number}, deleteContact }) => {     
     return (
-        <li key={name}>
-            <span>{name}: {number}</span> 
-            <button type="button" onClick={() => deleteContact(name)}>Delete</button>
-        </li>
+        <TextList key={name}>
+            <Text>{name}: {number}</Text> 
+            <DeleteBtn type="button" onClick={() => deleteContact(name)}>
+                <MdDeleteForever />
+            </DeleteBtn>
+        </TextList>
     ); 
 };
 

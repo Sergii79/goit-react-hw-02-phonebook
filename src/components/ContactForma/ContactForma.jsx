@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { Formik, Field, Form } from 'formik';
+import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
+import { Form, Field, AddContactBtn, Heading } from "./ContactForma.styled";
 
 //* форма додавання контактів
 
@@ -29,7 +30,7 @@ export const ContactForm = ({ onSave }) => {
             // }}
         >
             <Form>
-                <h2>Name</h2>
+                <Heading>Name</Heading>
                 <Field
                     type="text"
                     name="name"
@@ -37,7 +38,7 @@ export const ContactForm = ({ onSave }) => {
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     required
                 />
-                <h2>Number</h2>
+                <Heading>Number</Heading>
                 <Field
                     type="tel"
                     name="number"
@@ -46,7 +47,7 @@ export const ContactForm = ({ onSave }) => {
                     required
                 />
 
-                <button type="submit">add contact</button>            
+                <AddContactBtn type="submit">add contact</AddContactBtn>            
             </Form>
         </Formik>
     );

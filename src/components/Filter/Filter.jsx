@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import { Headline, HeadInput } from "./Filter.styled";
 
 //* фільтр пошуку
 
 export const Filter = ({ onFilter }) => {
     return (
         <div>
-            <h4>Find contacts by name</h4>
-            <input
+            <Headline>Find contacts by name</Headline>
+            <HeadInput
                 type="text"
                 name="filter"                
                 onChange={onFilter}
