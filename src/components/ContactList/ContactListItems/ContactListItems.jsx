@@ -9,7 +9,9 @@ export const ContactListItems = ({ item: {name, number}, deleteContact }) => {
         <TextList key={name}>
             <Text>{name}: {number}</Text> 
             <DeleteBtn type="button" onClick={() => deleteContact(name)}>
-                <MdDeleteForever />
+                <MdDeleteForever
+                    style={{ color: "red" }}
+                />
             </DeleteBtn>
         </TextList>
     ); 

@@ -1,30 +1,20 @@
 import styled from "styled-components";
 
 export const TextList = styled.li`
-    margin: 5px 0;   
+    margin: 7px 0;   
     display: flex; 
     justify-content: space-between;
     align-items: center;
 `;
 
-export const Text = styled.span`
-    /* margin: 10px 0; */
+export const Text = styled.span`    
     font-size: 16px;
     font-weight: 400; 
 `;
 
-export const DeleteBtn = styled.button`
-    /* display: flex; */
-    /* height: auto; */
-    /* margin-top: 30px; */
-    /* text-align: center;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    justify-content: center; */
-  
+export const DeleteBtn = styled.button`    
     cursor: pointer;
-    padding: 5px 10px;    
+    padding: 4px 14px;    
     background-color: #fff;
     outline: none;
     border: none;
@@ -34,9 +24,9 @@ export const DeleteBtn = styled.button`
         box-shadow 250ms ease-in-out;
     font-size: 16px;
     font-weight: 400; 
-    :hover {
-        color: #fff;
+    :hover {        
         background-color: #868282;
         box-shadow: inset 0px 0px 5px #3c3c3c;
-    }   
+        svg {color: white !important;}        
+    }    
 `;

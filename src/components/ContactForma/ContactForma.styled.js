@@ -6,15 +6,7 @@ export const Form = styled(FormikForm)`
     border: 1px solid black;
 `;
 
-export const AddContactBtn = styled.button`
-    /* display: flex; */
-    /* height: auto; */
-    /* margin-top: 30px; */
-    /* text-align: center;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    justify-content: center; */
+export const AddContactBtn = styled.button`    
     width: 100%;
     cursor: pointer;
     padding: 5px 10px;    
